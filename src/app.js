@@ -7,7 +7,7 @@ const App = React.createClass({
   render: function () {
     return (
       <div>
-        <Title title='ola' />
+        <Title />
       </div>
     )
   }
