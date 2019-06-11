@@ -11,7 +11,7 @@ class App extends Component {
         <Title />
         {
           ['green', 'blue', 'black'].map(color => (
-            <Square key={color} color={color} />
+            <Square key={color} color={color} ><p>Using children</p></Square>
           ))
         }
         <Square />
