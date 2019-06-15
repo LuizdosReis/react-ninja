@@ -5,15 +5,14 @@
 import React, { Component } from 'react'
 import Title from './Title'
 import Square from './Square'
-import LikeButton from './LikeButton'
-import SearchButton from './SearchButton'
 import Button from './Button'
 
 class App extends Component {
   constructor () {
     super()
     this.state = {
-      title: 'Title in state'
+      title: 'Title in state',
+      color: 'red'
     }
   }
 
@@ -23,15 +22,18 @@ class App extends Component {
     return (
       <div>
         <Title title={title} />
+        <Square color={this.state.color} />
         <Button handleClick={() => { this.setState({ title: 'new Title' }) }}>change title</Button>
         {
           ['green', 'blue', 'black'].map(color => (
-            <Square key={color} color={color} ><p>Using children</p></Square>
+            <Button
+              key={color}
+              handleClick={() => { this.setState({ color }) }}
+            >
+              <p>{color}</p>
+            </Button>
           ))
         }
-        <Square />
-        <LikeButton />
-        <SearchButton />
       </div>
     )
   }
