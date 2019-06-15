@@ -9,21 +9,31 @@ class App extends Component {
   constructor () {
     super()
     this.state = {
-      showTimer: true
+      showTimer: true,
+      timer: 0
     }
   }
 
   render () {
-    const { showTimer } = this.state
+    const {
+      showTimer,
+      timer
+    } = this.state
+
     return (
       <div>
         {
-          showTimer && <Timer />
+          showTimer && <Timer timer={timer} />
         }
         <button
           onClick={() => { this.setState((prevState) => ({ showTimer: !prevState.showTimer })) }}
         >
           {showTimer ? 'Hide' : 'Show'} Timer
+        </button>
+        <button
+          onClick={() => { this.setState(() => ({ timer: 0 })) }}
+        >
+          Clear Timer
         </button>
       </div>
     )

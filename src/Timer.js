@@ -4,7 +4,7 @@ class Timer extends Component {
   constructor () {
     super()
     this.state = {
-      time: 0
+      timer: 0
     }
 
     this.timer = 0
@@ -18,7 +18,7 @@ class Timer extends Component {
   componentDidMount () {
     console.log('component did mount')
     this.timer = setInterval(() => {
-      this.setState((prevState) => ({ time: prevState.time + 1 }))
+      this.setState((prevState) => ({ timer: prevState.timer + 1 }))
     }, 1000)
   }
 
@@ -27,9 +27,19 @@ class Timer extends Component {
     clearInterval(this.timer)
   }
 
+  componentWillReceiveProps (nextProps) {
+    console.log('component will receive props', this.props, nextProps)
+    this.setState(() => ({ timer: nextProps.timer }))
+  }
+
+  shouldComponentUpdate (nextProps, nextState) {
+    console.log('should component update', nextState, nextProps)
+    return nextProps !== nextState
+  }
+
   render () {
     console.log('render')
-    return <div> Timer: {this.state.time}</div>
+    return <div> Timer: {this.state.timer}</div>
   }
 }
 
