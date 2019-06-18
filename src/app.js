@@ -1,9 +1,7 @@
-// 'strict'
-
 'use strict'
 
 import React, { Component } from 'react'
-import Button from './Button'
+import Form from './Form'
 
 class App extends Component {
   constructor () {
@@ -14,22 +12,9 @@ class App extends Component {
   }
 
   render () {
-    const {
-      showTimer
-    } = this.state
-
     return (
       <div>
-        <Button
-          handleClick={() => { this.setState((prevState) => ({ showTimer: !prevState.showTimer })) }}
-        >
-          {showTimer ? 'Hide' : 'Show'} Timer
-        </Button>
-        <Button
-          handleClick={() => { this.setState(() => ({ timer: 0 })) }}
-        >
-          Clear Timer
-        </Button>
+        <Form />
       </div>
     )
   }
