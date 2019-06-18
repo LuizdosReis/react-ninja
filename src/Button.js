@@ -6,4 +6,9 @@ const Button = ({ children, handleClick }) => (
   </button>
 )
 
+Button.propTypes = {
+  handleClick: React.PropTypes.func.isRequired,
+  children: React.PropTypes.node.isRequired
+}
+
 export default Button
