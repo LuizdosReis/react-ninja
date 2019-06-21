@@ -3,6 +3,7 @@ import Input from './Input'
 import Checkbox from './Checkbox'
 import Radio from './Radio'
 import Select from './Select'
+import Textarea from './Textarea'
 
 const Form = () => {
   const [value, setValue] = useState('Start value')
@@ -10,6 +11,7 @@ const Form = () => {
   const [firstRadiochecked, setFirstRadioChecked] = useState(true)
   const [secondRadiochecked, setSecondRadioChecked] = useState(false)
   const [selectValue, setSelectValue] = useState('One')
+  const [textAreaValue, setTextAreaValue] = useState('')
 
   return (
     <div>
@@ -48,6 +50,10 @@ const Form = () => {
             value: '3'
           }
         ]}
+      />
+      <Textarea
+        value={textAreaValue}
+        onChange={(e) => { setTextAreaValue(e.target.value) }}
       />
     </div>
   )
